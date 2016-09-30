@@ -8,12 +8,13 @@ class Home extends Component {
       <div className='Home'>
         <div className='home-background'></div>
         <div className='filler'></div>
-        <h1>Cheap friends and cheaper well drinks..</h1>
+        <h1>Find your nearest happy hour...on foot.</h1>
         <div className='filler'></div>
 
 
         <Button
           bsStyle={ 'danger' }
+          onClick={ this.props.dismountHome }
         >
           Get Started!
         </Button>
