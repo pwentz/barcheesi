@@ -1,23 +1,6 @@
 class UserLocator {
-  constructor() {
-    this.latitude = null
-    this.longitude = null
-  }
-
-  getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.showError);
-    }
-    else {
-      console.log("Geolocation is not supported by this browser.")
-    }
-  }
-
-  showPosition(position) {
-    this.latitude = position.coords.latitude
-    this.longitude = position.coords.longitude
-    console.log(this.latitude)
-    console.log(this.longitude)
+  getLocation(successCallback, failureCallback) {
+    navigator.geolocation.getCurrentPosition(successCallback, failureCallback);
   }
 
   showError(error) {
@@ -37,4 +20,4 @@ class UserLocator {
     }
   }
 }
-module.exports = UserLocator
+module.exports = new UserLocator()
