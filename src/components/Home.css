@@ -1,0 +1,26 @@
+.Home {
+  position: relative;
+  z-index: 1;
+}
+
+.Home h1 {
+  font-family: Pacifico;
+  font-size: 48px;
+  margin-top: 0px;
+}
+
+.home-background {
+  height: 812px;
+  z-index: -1;
+  background-image: url('./../assets/barcheesi-home.jpg');
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.filler {
+  height: 200px;
+}
