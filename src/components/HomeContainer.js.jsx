@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Home from './Home.js.jsx'
 import SimpleMap from './helpers/SimpleMap.js.jsx'
-import UserLocator from './helpers/userLocator.js'
-const ul = new UserLocator()
+const UserLocator = require('./helpers/userLocator.js')
 
 class HomeContainer extends Component {
   constructor() {
     super()
     this.state = {
-      homeMounted: true
+      homeMounted: true,
+      setCoordinates: false
     }
   }
 
+  componentDidMount() {
+    UserLocator.getLocation(
+      this.setCoordinates,
+      UserLocator.showError
+    )
+  }
+
+  setCoordinates = (position) => {
+    this.props.dispatch({
+      type: 'SET_COORDINATES',
+      data: {lat: position.coords.latitude, lng: position.coords.longitude}
+    })
+    this.setState({ setCoordinates: true })
+  }
+
   dismountHome = () => {
-    ul.getLocation()
     this.setState({ homeMounted: false })
   }
 
   render() {
-    const display = this.state.homeMounted ? <Home dismountHome={ this.dismountHome } />
-                                           : <SimpleMap />
+    const display = this.state.homeMounted ? <Home dismountHome={ this.dismountHome } canProceed={ this.state.setCoordinates }/>
+                                           : <SimpleMap coordinates={ this.props.userLocation }/>
     return (
       <div>
         { display }
@@ -28,4 +43,8 @@ class HomeContainer extends Component {
   }
 }
 
-export default HomeContainer;
+function mapStateToProps(state) {
+  return { userLocation: state.userLocation }
+}
+
+export default connect(mapStateToProps)(HomeContainer);
