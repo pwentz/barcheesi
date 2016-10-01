@@ -1,5 +1,5 @@
 class UserLocator {
-  getLocation(successCallback, failureCallback) {
+  getCoordinates(successCallback, failureCallback) {
     navigator.geolocation.getCurrentPosition(successCallback, failureCallback);
   }
 

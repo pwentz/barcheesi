@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import './GMap.css'
-require('./../../env.js')
+require('./../env.js')
 
 import GoogleMap from 'google-map-react';
-import SamplePlace from './../sample_place.js.jsx';
 
 export default class SimpleMapPage extends Component {
-  static defaultProps = {
-    zoom: 12,
-  };
-
   render() {
     return (
       <div className='g-map'>
@@ -18,7 +13,7 @@ export default class SimpleMapPage extends Component {
             key: process.env.google_maps_key
           }}
           defaultCenter={this.props.coordinates}
-          defaultZoom={this.props.zoom}>
+          defaultZoom={parseInt(14)}>
         </GoogleMap>
       </div>
       );
