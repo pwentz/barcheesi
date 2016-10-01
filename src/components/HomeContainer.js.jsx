@@ -27,7 +27,26 @@ class HomeContainer extends Component {
       data: {lat: position.coords.latitude, lng: position.coords.longitude}
     })
     this.setState({ setCoordinates: true })
+    this.getVenues()
+  }
+
+  getVenues = () => {
     FoursquareHelper.getVenues(this.props.userLocation)
+      .then(response => {
+        let venues = response.data.response.groups[0].items.map(v => v.venue)
+        this.setVenues(venues)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  setVenues = (rawVenues) => {
+    this.props.dispatch({
+      type: 'SET_VENUES',
+      data: rawVenues
+    })
+    console.log(this.props.venues)
   }
 
   dismountHome = () => {
@@ -46,7 +65,8 @@ class HomeContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return { userLocation: state.userLocation }
+  return { userLocation: state.userLocation,
+           venues: state.venues }
 }
 
 export default connect(mapStateToProps)(HomeContainer);
