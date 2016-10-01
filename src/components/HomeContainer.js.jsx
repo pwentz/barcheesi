@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Home from './Home.js.jsx'
 import SimpleMap from './helpers/SimpleMap.js.jsx'
 const UserLocator = require('./helpers/userLocator.js')
+const FoursquareHelper = require('./helpers/foursquareHelper')
 
 class HomeContainer extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class HomeContainer extends Component {
       data: {lat: position.coords.latitude, lng: position.coords.longitude}
     })
     this.setState({ setCoordinates: true })
+    FoursquareHelper.getVenues(this.props.userLocation)
   }
 
   dismountHome = () => {

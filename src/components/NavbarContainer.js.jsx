@@ -10,5 +10,4 @@ class NavbarContainer extends Component {
     )
   }
 }
-
 export default NavbarContainer;

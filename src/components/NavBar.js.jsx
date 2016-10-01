@@ -12,13 +12,6 @@ class NavBar extends Component {
               <a href="#">Barcheesi</a>
             </Navbar.Brand>
           </Navbar.Header>
-          <Nav
-            pullRight
-          >
-            <NavItem eventKey={1} href="#">
-              <i className='fi-social-facebook'></i>  Login
-            </NavItem>
-          </Nav>
         </Navbar>
       </div>
     )
