@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import SimpleMap from './SimpleMap.js.jsx'
 
 class MapContainer extends Component {
+  componentDidMount() {
+    console.log(this.props.venues)
+  }
+
   render() {
     return (
       <div>
