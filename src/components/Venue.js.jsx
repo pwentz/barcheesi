@@ -2,16 +2,19 @@ import React, { PropTypes, Component } from 'react'
 import {venueStyles, venueStylesHover} from './venueStyles.js'
 
 class Venue extends Component {
-  static propTypes = {
-    $hover: PropTypes.bool
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     hover:
+  //   }
+  // }
 
-  static defaultProps = {}
 
   render() {
     const styles = this.props.$hover ? venueStylesHover : venueStyles
     return (
-      <div style={styles}>
+      <div style={styles}
+      >
         <i className='fi-star'></i>
       </div>
     )
