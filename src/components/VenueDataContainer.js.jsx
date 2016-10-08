@@ -17,8 +17,9 @@ class VenueDataContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  var id = window.location.pathname.split('/').slice(-1)[0]
-  var venue = state.reducer.venues.find(v => v.id === id)
+  const venue = state.reducer.venues.find(v => {
+    return v.id === state.reducer.mountedVenue
+  })
   return { venue: venue }
 }
 

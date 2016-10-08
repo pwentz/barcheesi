@@ -30,12 +30,17 @@ class MapContainer extends Component {
   }
 
   handleVenueClick = (v, map, marker) => {
+    this.props.dispatch({
+      type: 'SET_VENUE',
+      id: v.id
+    })
+    const params = v.name.toLowerCase().split(' ').join('-')
+    const path = `/venues/${params}`
+    this.props.dispatch(push(path))
     map.panTo([v.location.lat, v.location.lng], {
       animate: true
     })
     marker.openPopup()
-    const path = `/venues/${v.id}`
-    this.props.dispatch(push(path))
   }
 
   handleVenueHover(v, map) {
