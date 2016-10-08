@@ -48,7 +48,7 @@ class HomeContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return { userLocation: state.userLocation }
+  return { userLocation: state.reducer.userLocation }
 }
 
 export default connect(mapStateToProps)(HomeContainer);

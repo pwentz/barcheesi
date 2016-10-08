@@ -1,6 +1,7 @@
 #g-map {
-  height: 450px;
+  height: 810px;
   width: 700px;
+  float: right;
 }
 
 .venue-icons {
