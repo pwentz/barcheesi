@@ -2,3 +2,9 @@
   height: 450px;
   width: 700px;
 }
+
+.venue-icons {
+  background-color: #ff8080;
+  border-radius: 50% 65% 0 65%;
+  transform: rotate(45deg);
+}
