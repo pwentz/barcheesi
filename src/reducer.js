@@ -1,4 +1,5 @@
-const reducer = (state = { userLocation: '', venues: [] }, action) => {
+const initialState = { userLocation: '', venues: [], mountedVenue: '' }
+const reducer = (state = initialState, action) => {
   switch(action.type) {
     case 'SET_COORDINATES':
       return {
@@ -10,6 +11,12 @@ const reducer = (state = { userLocation: '', venues: [] }, action) => {
       return {
         ...state,
         venues: action.data
+      }
+
+    case 'SET_VENUE':
+      return {
+        ...state,
+        mountedVenue: action.id
       }
 
     default:
