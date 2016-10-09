@@ -5,7 +5,7 @@ import './Home.css';
 
 class Home extends Component {
   render() {
-    const button = this.props.canProceed ? <Link to='/venues'><Button bsStyle={ 'danger'}>Get Started!</Button></Link>
+    const button = this.props.canProceed ? <Link to='/venues'><Button bsStyle={ 'info' }>Get Started!</Button></Link>
                                          : <Button bsStyle={ 'danger' } disabled>Get Started!</Button>
     return (
       <div className='Home'>

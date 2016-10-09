@@ -32,23 +32,30 @@ class HomeContainer extends Component {
   }
 
   setVenues = (rawVenues) => {
-    this.props.dispatch({
-      type: 'SET_VENUES',
-      data: rawVenues
+    rawVenues.forEach(venue => {
+      FoursquareHelper.getVenueDetails(venue.id)
+        .then(response => {
+          this.props.dispatch({
+            type: 'ADD_VENUE',
+            data: response.data.response.venue
+          })
+        })
     })
   }
 
   render() {
+    const canProceed = () => this.props.venues.length > 3
     return (
       <div>
-        <Home canProceed={ this.props.userLocation }/>
+        <Home canProceed={ canProceed() }/>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return { userLocation: state.reducer.userLocation }
+  return { userLocation: state.reducer.userLocation,
+           venues: state.reducer.venues }
 }
 
 export default connect(mapStateToProps)(HomeContainer);
