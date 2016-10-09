@@ -9,7 +9,7 @@ class FoursquareHelper {
   }
 
   params(c) {
-    return `${this.coords(c)}${this.foursquareParams()}${this.otherParams()}`
+    return `${this.coords(c)}&${this.foursquareParams()}${this.otherParams()}`
   }
 
   otherParams() {
@@ -21,7 +21,13 @@ class FoursquareHelper {
   }
 
   foursquareParams() {
-    return `&client_id=${process.env.foursquare_id}&client_secret=${process.env.foursquare_secret}`
+    return `client_id=${process.env.foursquare_id}&client_secret=${process.env.foursquare_secret}`
+  }
+
+  getVenueDetails(id) {
+    return axios.get(
+      `https://api.foursquare.com/v2/venues/${id}?${this.foursquareParams()}&v=20161001&m=foursquare`
+    )
   }
 }
 module.exports = new FoursquareHelper()

@@ -7,13 +7,6 @@ const reducer = (state = initialState, action) => {
         userLocation: action.data
       }
 
-    case 'ADD_VENUE':
-      const currentVenues = [...state.venues, action.data]
-      return {
-        ...state,
-        venues: currentVenues
-      }
-
     case 'SET_VENUES':
       return {
         ...state,
@@ -23,7 +16,7 @@ const reducer = (state = initialState, action) => {
     case 'SET_VENUE':
       return {
         ...state,
-        mountedVenue: action.data
+        mountedVenue: action.id
       }
 
     default:

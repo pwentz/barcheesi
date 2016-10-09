@@ -1,0 +1,21 @@
+.venue-name {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  margin-right: 15px;
+  font-size: 64px;
+  margin-top: 20px;
+}
+
+.venue-address p {
+  font-size: 16px;
+  font-family: 'Bree Serif', serif
+}
+
+.venue-hours h3 {
+  font-family: 'Bree Serif', serif;
+}
+
+.venue-hours h4 {
+  color: green;
+  font-family: 'Bree Serif', serif;
+}
