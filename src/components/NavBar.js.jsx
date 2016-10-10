@@ -10,7 +10,7 @@ class NavBar extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to='/'>Barcheesi</Link>
+              <Link to='/'>GeoPub</Link>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>

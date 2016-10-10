@@ -8,19 +8,16 @@ const FoursquareHelper = require('./helpers/foursquareHelper')
 
 class MapContainer extends Component {
   componentDidMount() {
-    console.log(this.props.venues.length)
     const lat = this.props.userLocation.lat
     const lng = this.props.userLocation.lng
     const myMap = L.map('g-map').setView([lat, lng], 16)
     L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=${process.env.mapbox_access_token}`, {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
     }).addTo(myMap);
-    console.log(this.props.venues)
     this.addMarkers(myMap)
   }
 
   addMarkers(myMap) {
-    console.log(this.props.venues.length)
     this.props.venues.forEach( v => {
       const myIcon = L.icon({
         iconSize: [50,50],

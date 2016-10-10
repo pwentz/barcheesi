@@ -1,9 +1,14 @@
 .venue-name {
-  text-align: center;
+  text-align: left;
   font-family: 'Lobster', cursive;
   margin-right: 15px;
   font-size: 64px;
   margin-top: 20px;
+}
+
+.venue-attrs {
+  text-align: center;
+  list-style-type: none;
 }
 
 .venue-address p {
@@ -18,4 +23,22 @@
 .venue-hours h4 {
   color: green;
   font-family: 'Bree Serif', serif;
+}
+
+.venue-photo {
+  height: 300px;
+  width: 300px;
+}
+
+.venue-filler {
+  height: 35px;
+}
+
+.venue-rating {
+  font-size: 24px;
+}
+.venue-rating-container {
+  border: solid black 1px;
+  width: 70px;
+  border-radius: 12px;
 }
