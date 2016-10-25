@@ -3,6 +3,11 @@
   z-index: 1;
 }
 
+.progress-arc {
+  position: relative;
+  z-index: 1;
+}
+
 .Home h1 {
   font-family: Pacifico;
   font-size: 48px;

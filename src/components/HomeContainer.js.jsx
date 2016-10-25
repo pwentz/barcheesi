@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Home from './Home.js.jsx'
+import ProgressArc from './ProgressArc.js.jsx'
 const UserLocator = require('./helpers/userLocator')
 const FoursquareHelper = require('./helpers/foursquareHelper')
 
 class HomeContainer extends Component {
-  componentDidMount() {
+  componentWillMount() {
     UserLocator.getCoordinates(
       this.setCoordinates,
       UserLocator.showError
@@ -43,11 +44,29 @@ class HomeContainer extends Component {
     })
   }
 
+  getArc = (percentComplete) => {
+    if (percentComplete < 1) {
+        return <ProgressArc
+                 height={300}
+                 width={300}
+                 innerRadius={100}
+                 outerRadius={110}
+                 id="d3-arc"
+                 backgroundColor="#e6e6e6"
+                 foregroundColor="#ffc733"
+                 percentComplete={percentComplete}
+               />
+    }
+  }
+
   render() {
-    const canProceed = () => this.props.venues.length > 3
+    const percentComplete = this.props.venues.length / 7
+    const canProceed = () => percentComplete >= 1
+    const renderArc = this.getArc(percentComplete)
     return (
       <div>
-        <Home canProceed={ canProceed() }/>
+        <Home canProceed={ canProceed }/>
+        { renderArc }
       </div>
     )
   }
