@@ -16,7 +16,7 @@ class HomeContainer extends Component {
   setCoordinates = (position) => {
     this.props.dispatch({
       type: 'SET_COORDINATES',
-      data: {lat: position.coords.latitude, lng: position.coords.longitude}
+      data: { lat: position.coords.latitude, lng: position.coords.longitude }
     })
     this.getVenues()
   }
